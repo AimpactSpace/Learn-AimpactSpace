@@ -3,6 +3,13 @@
 @tailwind utilities;
 @tailwind variants;
 
+/* Add the Avenir font family */
+:root {
+  --font-primary: "Avenir", sans-serif;
+  --font-secondary: "Avenir", sans-serif;
+}
+
+/* Apply the Avenir font to headings */
 h1,
 h2,
 h3,
@@ -12,6 +19,8 @@ h6 {
   font-family: var(--font-primary);
 }
 
+/* Apply the Avenir font to the body */
 body {
   font-family: var(--font-secondary);
 }
+
