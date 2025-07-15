@@ -24,3 +24,7 @@ body {
   font-family: var(--font-secondary);
 }
 
+pre {
+  font-family: var(--font-secondary);
+}
+

@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Layout, { GradientBackground } from '../components/Layout';
 import SEO from '../components/SEO';
 import { getGlobalData } from '../utils/global-data';
+import { useState } from 'react';
 
 const prompts = [
   {
@@ -28,9 +29,13 @@ const prompts = [
 ];
 
 export default function PromptLibrary({ globalData }) {
-  const copyPrompt = (text) => {
+  const [copiedId, setCopiedId] = useState(null);
+
+  const copyPrompt = (text, id) => {
     if (typeof navigator !== 'undefined') {
       navigator.clipboard.writeText(text);
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 1000);
     }
   };
 
@@ -54,10 +59,10 @@ export default function PromptLibrary({ globalData }) {
               <div className="flex items-start justify-between px-6 py-6 lg:py-10 lg:px-16">
                 <pre className="whitespace-pre-wrap">{prompt.text}</pre>
                 <button
-                  onClick={() => copyPrompt(prompt.text)}
-                  className="px-3 py-2 ml-4 text-sm text-white bg-primary rounded"
+                  onClick={() => copyPrompt(prompt.text, prompt.id)}
+                  className="px-3 py-2 ml-4 text-sm text-white bg-primary rounded transition"
                 >
-                  Copy
+                  {copiedId === prompt.id ? 'Copied' : 'Copy'}
                 </button>
               </div>
             </li>
