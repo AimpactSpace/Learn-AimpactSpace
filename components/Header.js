@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { promptCategories } from '../utils/prompt-data';
 
 export default function Header({ name }) {
   return (
@@ -13,13 +14,37 @@ export default function Header({ name }) {
           className="font-semibold hover:underline dark:text-white"
         >
           Blogs
+
+
         </Link>
         <Link
           href="/prompt-library"
           className="font-semibold hover:underline dark:text-white"
         >
           Prompt Library
+ main
         </Link>
+        <div className="relative group">
+          <Link
+            href="/prompt-library"
+            className="font-semibold hover:underline dark:text-white"
+          >
+            Prompt Library
+          </Link>
+          <div
+            className="absolute left-0 z-10 hidden w-48 py-2 mt-2 text-sm text-left bg-white rounded shadow-lg border border-gray-200 group-hover:block group-focus-within:block dark:bg-black dark:bg-opacity-90 bg-opacity-90 dark:border-gray-700"
+          >
+            {Object.entries(promptCategories).map(([key, { title }]) => (
+              <Link
+                key={key}
+                href={`/prompt-library/${key}`}
+                className="block px-4 py-2 whitespace-nowrap hover:underline dark:text-white"
+              >
+                {title}
+              </Link>
+            ))}
+          </div>
+        </div>
       </nav>
     </header>
   );
