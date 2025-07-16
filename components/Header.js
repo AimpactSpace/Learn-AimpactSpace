@@ -12,7 +12,7 @@ export default function Header({ name }) {
           href="/"
           className="font-semibold hover:underline dark:text-white"
         >
-          Home
+          Blogs
         </Link>
         <Link
           href="/prompt-library"
