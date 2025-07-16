@@ -14,6 +14,15 @@ export default function Header({ name }) {
           className="font-semibold hover:underline dark:text-white"
         >
           Blogs
+
+
+        </Link>
+        <Link
+          href="/prompt-library"
+          className="font-semibold hover:underline dark:text-white"
+        >
+          Prompt Library
+ main
         </Link>
         <div className="relative group">
           <Link
